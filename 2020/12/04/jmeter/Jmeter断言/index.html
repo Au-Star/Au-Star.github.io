@@ -6,8 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    
-    <title>分类</title>
+    <title></title>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/LongCang.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Monda.css">
@@ -18,12 +17,13 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/Rosario.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/font/UbuntuMono.css">
 
-    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/page.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/post.css">
     
         <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/css/normal.css">
     
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/js/jquery-3.4.1.min.js"></script>
+
 <meta name="generator" content="Hexo 5.2.0"></head>
 <body>
     <a id="cover"></a>
@@ -31,10 +31,21 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">分类</h1>
+                <h1 class="header-subtitle"></h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text Chinese"></p>
-                    <p class="article-info-text English"></p>                  
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2020-12-04
+                        </span>
+                        
+                            <span id="/2020/12/04/jmeter/Jmeter断言/" class="leancloud_visitors" data-flag-title="">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2020/12/04/jmeter/Jmeter断言/"></span>
+                        </span>  
+                    </p>                 
                 </div>
             </div>
         </div>
@@ -43,14 +54,90 @@
 </div>
     <div id="container">
     <div id="content">
-        <div class="categories">
-    <div class="categories-title">
-        目前共计 1 个分类
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <p><strong>断言：</strong>验证服务器返回的数据是否满足我们的要求<br> 即LR中的检查点，是对响应结果做一个判断，我们在请求一个网址时会有返回数据，那怎么判断请求是正确的呢，就需要对某一字段或内容进行匹配，如果跟预想的一样就认为请求是正确的，否则是失败的</p>
+<p>使用断言的目的：在request的返回层面增加一层判断机制（因为request成功了，并不代表结果一定正确）</p>
+<p><strong>针对何时使用JMeter断言，下面给出了一些建议：</strong><br> （1）请求使用的是来自“CSV数据集配置”的数据<br> （2）使用的HTTP的POST、PUT、PATCH方法<br> （3）登录和注销后<br> （4）当2xx status codes同时在正面测试和负面测试中返回<br> （5）在API性能测试中<br> （6）在功能测试中<br> （7）有SOAP / XML-RPC请求<br> <strong>需要注意：断言消耗内存，谨慎使用</strong></p>
+<h3 id="断言类型"><a href="#断言类型" class="headerlink" title="断言类型"></a>断言类型</h3><p>如果没有断言只能人工对比对接口返回的数据，接口很多时，比对数据的过程就会非常耗时，而且也容易出错，可以通过Fiddler抓包http请求来设置</p>
+<h5 id="1、响应断言"><a href="#1、响应断言" class="headerlink" title="1、响应断言"></a>1、响应断言</h5><p>在使用该断言时，需要熟练使用正则表达式，如果请求中使用了变量，响应内容里写${variable}</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5999951-ae6f386241ae0c7c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1019/format/webp" alt="img"></p>
+<p>抓包查看Resopnse.png</p>
+<p>允许用户通过添加模式字符串来比较验证服务器返回的响应，Jmeter提供了很多种匹配规则，断言中设置要测试的模式，实际响应的内容与设计的字符串进行匹配，如果返回的内容包含了字符串，则认为该次测试通过，否则就是失败（模式中的内容也可以参数化）</p>
+<p>对断言做判断，只需添加【监听器–断言结果】<br> 1）<strong>如果断言成功，显示的是HTTP请求名称</strong><br> 2）若失败，则会显示请求名称和失败的原因（“Test failed XXXXXX”内容）</p>
+<p><strong>PS：一个Sampler可以添加多个断言，根据你的检查需求来添加相应的断言，当Sampler下所有的断言都通过了，才算成功 比如在测接口时，返回值是True，只能说明接口是通的，还得继续验证返回的data值是否正确</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5999951-d47bec560a1af12e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/917/format/webp" alt="img"></p>
+<p>断言.png</p>
+<ul>
+<li>Apply to：一般情况下，使用默认的就行，如果一次发送多个请求（Ajax请求，GET或POST），就需要根据实际断言需要选择其他选项了。</li>
+<li>要测试的响应字段：根据实际需要选择 <ul>
+<li>响应文本<br> 服务器响应文本，一般情况下，我们都是勾选改选项，用于验证服务器返回值。</li>
+<li>Document（text）<br> 通过Apache Tika从各种的文档中提取的文本进行验证，包括响应文本，pdf、word等等各种格式。jmeter会用Apache Tika去解析服务器响应内容，耗内存、也耗时间，解析易失败，尽量少用或不用。多用响应文本方式来进行断言验证</li>
+<li>URL样本<br> 对请求的url进行断言，如果请求没有重定向(302)，那么该url即为请求的url；如果有重定向（切跟随重定向），那么url则包含了请求url和重定向url。</li>
+<li>响应代码<br> 即http响应代码，例如200，404等等，需要注意： 由于jmeter默认情况下认为4xx，5xx时该请求失败，所以在断言这类响应代码时，需要同时勾选Ingore Status，才能正常去做断言。</li>
+<li>响应信息<br> 即响应代码对应的信息，例如OK， Not Found等等这类的。</li>
+<li>Ingore Status 请参见4响应代码的使用说明。</li>
+</ul>
+</li>
+</ul>
+<p>如下常见类似是响应信息，即http响应头信息，主要用于断言当响应头带有唯一或特定意义</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> Ok</span><br><span class="line">HTTP/<span class="number">1.1</span> <span class="number">302</span> Found</span><br><span class="line">Response Header : 响应头信息，例如</span><br><span class="line">Server: Tengine</span><br><span class="line">Date: Thu, <span class="number">12</span> Mar <span class="number">2015</span> <span class="number">09</span>:<span class="number">43</span>:<span class="number">52</span> GMT</span><br><span class="line">Content-<span class="built_in">Type</span>: text/html</span><br><span class="line">Content-Length: <span class="number">260</span>Connection: close</span><br><span class="line">Location: http:<span class="comment">//www.baidu.com/404.html</span></span><br><span class="line">Response Headers</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>模式匹配规则：支持正则表达式 <ul>
+<li>包括：返回结果包括指定的内容，当返回值固定时，可以使用返回值做断言，效果和equals相同</li>
+<li>匹配：用正则表达式必须能匹配整个返回值，而不是返回值的一部分</li>
+<li>Equals：返回结果与你指定结果完全一致</li>
+<li>Substring：返回结果是指定结果的字串，不支持正则字符串</li>
+<li>否：相当于取反，即如果上述断言结果为true，勾选“否”选项后，则最终断言结果为false</li>
+</ul>
+</li>
+<li>要测试的模式：要匹配的响应值（字符串或正则表达式），即接口测试结果的期望值或者其他期望值</li>
+</ul>
+<p>转自：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9d6752c8b565">https://www.jianshu.com/p/9d6752c8b565</a></p>
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://pic1.zhimg.com/v2-45cb7bd2ae4a16036acbebe4f2677560_r.jpg?source=1940ef5c" alt="Au-Star">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：Au-Star
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2020/12/04/jmeter/Jmeter%E6%96%AD%E8%A8%80/" target="_blank"></a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Life For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
     </div>
-    <div class="categories-content">
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/jmeter/">jmeter</a><span class="category-list-count">2</span></li></ul>
+    <div class="article-footer">
+        
+        
+        <div class="article-prev-next">
+            
+            
+                <a href="/2020/12/04/jmeter/Jmeter%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BD%95%E5%88%B6/" class="next-prefix">» </a> 下一篇：    <a href="/2020/12/04/jmeter/Jmeter%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BD%95%E5%88%B6/" title="发布于 2020-12-04 08:31"></a>
+            
+        </div>
     </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
 </div>
+
     </div>
 </div>
     <div id="footer"></div>

@@ -450,12 +450,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-30
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.2k
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    4 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -467,37 +487,42 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <hr>
-<h2 id="测试用例的优先级"><a href="#测试用例的优先级" class="headerlink" title="测试用例的优先级"></a>测试用例的优先级</h2><p>[TOC]</p>
-<h2 id="1-划分测试用例优先级的好处"><a href="#1-划分测试用例优先级的好处" class="headerlink" title="1.划分测试用例优先级的好处"></a>1.划分测试用例优先级的好处</h2><p>​    没有软件系统时完美的，任何系统都有BUGS。但是每一次的迭代都有一个期望，测试工程师有知道本次迭代的项目关系人的预期，找到对应的目标和风险。</p>
-<p>​    二八原则： 10%到15%的测试用例发现被测系统的75%到90%的BUGS。</p>
-<hr>
-<h2 id="2-怎么划分优先级呢"><a href="#2-怎么划分优先级呢" class="headerlink" title="2.怎么划分优先级呢"></a>2.怎么划分优先级呢</h2><p>​    我相信你肯定也遇见过如下场景，面对成百上千的测试用例，要挑选一个最小的，最终要的，优先级最高的测试用例的时候却无法下手。对测试用例进行优先级的定义并不容易，而优先级的定义在每一次迭代中或者迭代后都有可能修改。因此<strong>测试用例的优先级是动态的。</strong></p>
-<hr>
-<ol>
-<li><h3 id="构建验证测试（BVT）"><a href="#构建验证测试（BVT）" class="headerlink" title="构建验证测试（BVT）"></a>构建验证测试（BVT）</h3><p>​    BVT也称之为冒烟测试用例集。是每次测试开始allin投入前最希望被运行得以确认的测试用例集。</p>
-<p>​    冒烟测试用例集的规则： 如果该用例无法正确执行成功，其他测试用例都没法办法执行。如果满足该条件的测试用例，那么就应该纳入冒烟测试用例集。</p>
-</li>
-<li><h3 id="高优先级"><a href="#高优先级" class="headerlink" title="高优先级"></a>高优先级</h3><p>​    高优先级测试用例集合是按照执行频度和业务功树的根部分支的条件选入的。</p>
-<p>​    高优先级测试用例的规则： BVT中加入最常用的测试用例，用来验证重要或者主干流程的功能稳定，功能正确。测试用例中既包含了正确的数据流也包含了错误的数据流。</p>
-</li>
-<li><h3 id="中优先级"><a href="#中优先级" class="headerlink" title="中优先级"></a>中优先级</h3><p>​    中优先级测试用例集合是按照执行频度和业务功树的主要分支的条件选入的。</p>
-<p>​    中优先级测试用例的规则： 在新迭代影响域（新功能区域）或者功能更加详尽。测试用例包含了大多数方面的功能，其中除了有正确数据流和错误的数据流，还应该有一些配置方面的测试。</p>
-</li>
-<li><h3 id="低优先级"><a href="#低优先级" class="headerlink" title="低优先级"></a>低优先级</h3><p>​    低优先级测试用例集合是按照执行频度和业务功树的根部分支的条件选入的。</p>
-<p>​    低优先级测试用例的规则： 这个是最不频繁的测试用例执行部分。但是低并不是说不执行，不测试。只是在迭代的过程汇总，执行频率比较低，不常常被执行。例如：错误信息，可用性，压力和性能测试等。</p>
-</li>
-</ol>
-<hr>
-<h2 id="3-开始划分你的测试用例"><a href="#3-开始划分你的测试用例" class="headerlink" title="3.开始划分你的测试用例"></a>3.开始划分你的测试用例</h2><h3 id="1-粗狂划分，任意标注"><a href="#1-粗狂划分，任意标注" class="headerlink" title="1. 粗狂划分，任意标注"></a>1. 粗狂划分，任意标注</h3><p>​    将全部功能的正确性验证（happy path）的测试用例定义为高优先级；</p>
-<p>​    将全部由错误或者有边界值验证的测试用例定义为中优先级；</p>
-<p>​    将其他定义为低优先级（这里面主要是非功能测试用例）；</p>
-<h3 id="2-Review-每一个测试用例，升级或者降级"><a href="#2-Review-每一个测试用例，升级或者降级" class="headerlink" title="2. Review 每一个测试用例，升级或者降级"></a>2. Review 每一个测试用例，升级或者降级</h3><p>​    通过对每一个测试用例以及其优先级的标记的重新review，开课测试的重要性以及执行频度等，按照下面进行降级处理。</p>
-<p>​    将功能验证测试分为两组重要和非重要，将“不太重要” 的功能验证测试降级为中等优先级；</p>
-<p>​    将错误和边界测试分为两组重要和非重要，将“重要” 错误和边界测试推广到高优先级；</p>
-<p>​    将非功能性测试分为两组重要和非重要，将“重要” 非功能性测试推广到中等优先级；</p>
-<p>​    对每组高，中，低优先级测试用例重复划分和升 / 降级过程，直到达到优先级之间移动的测试用例数量变为0，终止。</p>
-<h3 id="3-确定BVT"><a href="#3-确定BVT" class="headerlink" title="3. 确定BVT"></a>3. 确定BVT</h3><p>​    将高优先级测试分为两组，分别为致命和严重（如果出BUG就是致命BUG,那么这条测试用例也设定为致命。 将致命的测试用例归并到BVT优先级。）</p>
-<p>​    相对统计的优先级分布BVT 10%-15% ,高 20%-30%，中40%-60% 和低10%-15%。</p>
+<h2 id="B-S和C-S的区别"><a href="#B-S和C-S的区别" class="headerlink" title="B/S和C/S的区别"></a>B/S和C/S的区别</h2><p>[TOC]</p>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念:"></a>概念:</h3><pre class=" language-python"><code class="language-python">    C<span class="token operator">/</span>S结构，即Client<span class="token operator">/</span>Server<span class="token punctuation">(</span>客户机<span class="token operator">/</span>服务器<span class="token punctuation">)</span>结构，是大家熟知的软件系统体系结构，通过将任务合理分配到Client端和Server端，降低了系统的通讯开销，可以充分利用两端硬件环境的优势。早期的软件系统多以此作为首选设计标准。 
+
+    B<span class="token operator">/</span>S结构，即Browser<span class="token operator">/</span>Server<span class="token punctuation">(</span>浏览器<span class="token operator">/</span>服务器<span class="token punctuation">)</span>结构，是随着Internet技术的兴起，对C<span class="token operator">/</span>S结构的一种变化或者改进的结构。在这种结构下，用户界面完全通过WWW浏览器实
+现，一部分事务逻辑在前端实现，但是主要事务逻辑在服务器端实现，形成所谓<span class="token number">3</span><span class="token operator">-</span>tier结构。B<span class="token operator">/</span>S结构，主要是利用了不断成熟的WWW浏览器技术，结合浏览器的多种Script语言<span class="token punctuation">(</span>VB
+Script、JavaScript…<span class="token punctuation">)</span>和ActiveX技术，用通用浏览器就实现了原来需要复杂专用软件才能实现的强大功能，并节约了开发成本，是一种全新的软件系统构造技术。随着Windows <span class="token number">98</span>
+<span class="token operator">/</span>Windows <span class="token number">2000</span>将浏览器技术植入操作系统内部，这种结构更成为当今应用软件的首选体系结构。</code></pre>
+<h3 id="C-S和B-S的区别："><a href="#C-S和B-S的区别：" class="headerlink" title="C/S和B/S的区别："></a>C/S和B/S的区别：</h3><pre class=" language-python"><code class="language-python">Client<span class="token operator">/</span>Server是建立在局域网的基础上的<span class="token punctuation">.</span>Browser<span class="token operator">/</span>Server是建立在广域网的基础上的<span class="token punctuation">,</span>但并不是说B<span class="token operator">/</span>S结构不能在局域网上使用<span class="token punctuation">,</span>如智赢IPOWER<span class="token punctuation">,</span>在单机<span class="token punctuation">,</span>局限网<span class="token punctuation">,</span>广域网均能使用。
+
+<span class="token number">1</span>．硬件环境不同<span class="token punctuation">:</span> 
+C<span class="token operator">/</span>S 一般建立在专用的网络上<span class="token punctuation">,</span> 小范围里的网络环境<span class="token punctuation">,</span> 局域网之间再通过专门服务器提供连接和数据交换服务<span class="token punctuation">.</span> 
+B<span class="token operator">/</span>S 建立在广域网之上的<span class="token punctuation">,</span> 不必是专门的网络硬件环境<span class="token punctuation">,</span>例与电话上网<span class="token punctuation">,</span> 租用设备<span class="token punctuation">.</span> 信息自己管理<span class="token punctuation">.</span> 有比C<span class="token operator">/</span>S更强的适应范围<span class="token punctuation">,</span> 一般只要有操作系统和浏览器就行 
+<span class="token number">2</span>．对安全要求不同 
+C<span class="token operator">/</span>S 对服务端、客户端都安全都要考虑。
+B<span class="token operator">/</span>S 因没有客户端，所以只注重服务端安全即可。
+<span class="token number">3</span>．对程序架构不同 
+C<span class="token operator">/</span>S 程序可以更加注重流程<span class="token punctuation">,</span> 可以对权限多层次校验<span class="token punctuation">,</span> 对系统运行速度可以较少考虑<span class="token punctuation">.</span> 
+B<span class="token operator">/</span>S 对安全以及访问速度的多重的考虑<span class="token punctuation">,</span> 建立在需要更加优化的基础之上<span class="token punctuation">.</span> 比C<span class="token operator">/</span>S有更高的要求 B<span class="token operator">/</span>S结构的程序架构是发展的趋势<span class="token punctuation">,</span> 从MS的<span class="token punctuation">.</span>Net系列的BizTalk <span class="token number">2000</span> Exchange <span class="token number">2000</span>
+等<span class="token punctuation">,</span> 全面支持网络的构件搭建的系统<span class="token punctuation">.</span> SUN 和IBM推的JavaBean 构件技术等<span class="token punctuation">,</span>使 B<span class="token operator">/</span>S更加成熟<span class="token punctuation">.</span> 例如智赢IPOWER，采用AJAX和数据存储优化技术，相比一般B<span class="token operator">/</span>S架构软件速度提高
+<span class="token number">30</span><span class="token operator">%</span>至<span class="token number">99</span><span class="token operator">%</span>。
+<span class="token number">4</span>．软件重用不同 
+C<span class="token operator">/</span>S 程序可以不可避免的整体性考虑<span class="token punctuation">,</span> 构件的重用性不如在B<span class="token operator">/</span>S要求下的构件的重用性好<span class="token punctuation">.</span> 
+B<span class="token operator">/</span>S 对的多重结构<span class="token punctuation">,</span>要求构件相对独立的功能<span class="token punctuation">.</span> 能够相对较好的重用<span class="token punctuation">.</span>就入买来的餐桌可以再利用<span class="token punctuation">,</span>而不是做在墙上的石头桌子 
+<span class="token number">5</span>．系统维护不同 
+系统维护是软件生存周期中<span class="token punctuation">,</span>开销大<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>重要 
+C<span class="token operator">/</span>S 程序由于整体性<span class="token punctuation">,</span> 必须整体考察<span class="token punctuation">,</span> 处理出现的问题以及系统升级<span class="token punctuation">.</span> 升级难<span class="token punctuation">.</span> 可能是再做一个全新的系统 
+B<span class="token operator">/</span>S 构件组成<span class="token punctuation">,</span>方面构件个别的更换<span class="token punctuation">,</span>实现系统的无缝升级<span class="token punctuation">.</span> 系统维护开销减到最小<span class="token punctuation">.</span>用户从网上自己下载安装就可以实现升级<span class="token punctuation">.</span> 
+<span class="token number">6</span>．处理问题不同 
+C<span class="token operator">/</span>S 程序可以处理用户面固定<span class="token punctuation">,</span> 并且在相同区域<span class="token punctuation">,</span> 安全要求高需求<span class="token punctuation">,</span> 与操作系统相关<span class="token punctuation">.</span> 应该都是相同的系统 
+B<span class="token operator">/</span>S 建立在广域网上<span class="token punctuation">,</span> 面向不同的用户群<span class="token punctuation">,</span> 分散地域<span class="token punctuation">,</span> 这是C<span class="token operator">/</span>S无法作到的<span class="token punctuation">.</span> 与操作系统平台关系最小<span class="token punctuation">.</span> 
+<span class="token number">7</span>．用户接口不同 
+C<span class="token operator">/</span>S 多是建立的Window平台上<span class="token punctuation">,</span>表现方法有限<span class="token punctuation">,</span>对程序员普遍要求较高 
+B<span class="token operator">/</span>S 建立在浏览器上<span class="token punctuation">,</span> 通过WEB服务或其他公共可识别描述语言可跨平台，使用更灵活。不仅可应用在Window平台上，还可应用于unix<span class="token operator">/</span>Linux等平台。
+<span class="token number">8</span>．信息流不同 
+C<span class="token operator">/</span>S 程序一般是典型的中央集权的机械式处理<span class="token punctuation">,</span> 交互性相对低 
+B<span class="token operator">/</span>S 信息流向可变化<span class="token punctuation">,</span> B<span class="token operator">-</span>B B<span class="token operator">-</span>C B<span class="token operator">-</span>G等信息、流向的变化<span class="token punctuation">,</span> 更象交易中心。</code></pre>
 
                 
             </div>
@@ -524,7 +549,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2020/12/04/1.%E5%88%92%E5%88%86%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84%E5%A5%BD%E5%A4%84/">http://example.com/2020/12/04/1.%E5%88%92%E5%88%86%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84%E5%A5%BD%E5%A4%84/</a>
+                    <a href="http://example.com/2020/12/04/bs-he-cs-de-qu-bie/">http://example.com/2020/12/04/bs-he-cs-de-qu-bie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -581,132 +606,6 @@
                 </div>
             </div>
             
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
-            
         </div>
     </div>
 
@@ -733,13 +632,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/12/04/Android%20%20ios%E6%89%8B%E6%9C%BA%E9%94%80%E5%94%AE%E6%A6%9C/">
+                <a href="/2020/12/04/get-he-post-de-qu-bie/get-he-post-de-qu-bie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="GET与POST区别">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">GET与POST区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -754,11 +653,23 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            阿浪
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95/" class="post-category">
+                                    请求方法
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/get-post/">
+                        <span class="chip bg-color">get-post</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -770,13 +681,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/12/04/%E5%BE%80%E4%BA%8B%E5%A6%82%E7%83%9F/">
+                <a href="/2020/12/04/badboy-can-shu-lu-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="往事如烟">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">往事如烟</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -983,17 +894,20 @@
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2020</span>
+                <span id="year">2020</span>
             
-            <span id="year">2019</span>
+            <span id="year">2020</span>
             <a href="/about" target="_blank">阿浪</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">6.2k</span>&nbsp;字
             
             
             
@@ -1012,6 +926,50 @@
             </span>
             
             <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "12";
+                    var startDate = "3";
+                    var startHour = "19";
+                    var startMinute = "43";
+                    var startSecond = "34";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
             
             <br>
             

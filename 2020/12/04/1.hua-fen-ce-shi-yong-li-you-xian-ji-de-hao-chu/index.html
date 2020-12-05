@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="GET与POST区别, 网抑云浪浪">
+    <meta name="keywords" content="网抑云浪浪">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>GET与POST区别 | 网抑云浪浪</title>
+    <title>网抑云浪浪</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">GET与POST区别</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -431,25 +431,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/get-post/">
-                                <span class="chip bg-color">get-post</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95/" class="post-category">
-                                请求方法
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -463,12 +450,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-23
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.1k
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    3 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -479,9 +486,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="GET与POST："><a href="#GET与POST：" class="headerlink" title="GET与POST："></a>GET与POST：</h1><p>　“get”方法提交的数据会直接填充在请求报文的URL上，如“ <a target="_blank" rel="noopener" href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1">https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1</a> ”   “？”问号划分域名和get提交的参数，A=B中的A是参数名，B是参数值，多个参数之间用&amp;进行分割，如果参数值是中文，则会转换成诸如%ab%12加密16进制码。一般来说，浏览器处理的URL最大限度长度为1024B（不同浏览器不一样），所以GET方法提交参数长度有限制。</p>
-<p>​        “post”方法提交的数据会附在正文上，一般请求正文的长度是没有限制的，但表单中所能处理的长度一般为100k（不同协议不同浏览器不一样）,而且需要考虑下层报文的传输效率，不推荐过长。</p>
-<p>​        所以GET方法可以用来传输一些可以公开的参数信息，解析也比较方便，如百度的搜索的关键词，而POST方法可以用来提交一个用户的敏感信息（如果不使用HTTPS加密，报文正文仍旧是明文，容易被人截获读取）</p>
+                <hr>
+<h2 id="测试用例的优先级"><a href="#测试用例的优先级" class="headerlink" title="测试用例的优先级"></a>测试用例的优先级</h2><p>[TOC]</p>
+<h2 id="1-划分测试用例优先级的好处"><a href="#1-划分测试用例优先级的好处" class="headerlink" title="1.划分测试用例优先级的好处"></a>1.划分测试用例优先级的好处</h2><p>​    没有软件系统时完美的，任何系统都有BUGS。但是每一次的迭代都有一个期望，测试工程师有知道本次迭代的项目关系人的预期，找到对应的目标和风险。</p>
+<p>​    二八原则： 10%到15%的测试用例发现被测系统的75%到90%的BUGS。</p>
+<hr>
+<h2 id="2-怎么划分优先级呢"><a href="#2-怎么划分优先级呢" class="headerlink" title="2.怎么划分优先级呢"></a>2.怎么划分优先级呢</h2><p>​    我相信你肯定也遇见过如下场景，面对成百上千的测试用例，要挑选一个最小的，最终要的，优先级最高的测试用例的时候却无法下手。对测试用例进行优先级的定义并不容易，而优先级的定义在每一次迭代中或者迭代后都有可能修改。因此<strong>测试用例的优先级是动态的。</strong></p>
+<hr>
+<ol>
+<li><h3 id="构建验证测试（BVT）"><a href="#构建验证测试（BVT）" class="headerlink" title="构建验证测试（BVT）"></a>构建验证测试（BVT）</h3><p>​    BVT也称之为冒烟测试用例集。是每次测试开始allin投入前最希望被运行得以确认的测试用例集。</p>
+<p>​    冒烟测试用例集的规则： 如果该用例无法正确执行成功，其他测试用例都没法办法执行。如果满足该条件的测试用例，那么就应该纳入冒烟测试用例集。</p>
+</li>
+<li><h3 id="高优先级"><a href="#高优先级" class="headerlink" title="高优先级"></a>高优先级</h3><p>​    高优先级测试用例集合是按照执行频度和业务功树的根部分支的条件选入的。</p>
+<p>​    高优先级测试用例的规则： BVT中加入最常用的测试用例，用来验证重要或者主干流程的功能稳定，功能正确。测试用例中既包含了正确的数据流也包含了错误的数据流。</p>
+</li>
+<li><h3 id="中优先级"><a href="#中优先级" class="headerlink" title="中优先级"></a>中优先级</h3><p>​    中优先级测试用例集合是按照执行频度和业务功树的主要分支的条件选入的。</p>
+<p>​    中优先级测试用例的规则： 在新迭代影响域（新功能区域）或者功能更加详尽。测试用例包含了大多数方面的功能，其中除了有正确数据流和错误的数据流，还应该有一些配置方面的测试。</p>
+</li>
+<li><h3 id="低优先级"><a href="#低优先级" class="headerlink" title="低优先级"></a>低优先级</h3><p>​    低优先级测试用例集合是按照执行频度和业务功树的根部分支的条件选入的。</p>
+<p>​    低优先级测试用例的规则： 这个是最不频繁的测试用例执行部分。但是低并不是说不执行，不测试。只是在迭代的过程汇总，执行频率比较低，不常常被执行。例如：错误信息，可用性，压力和性能测试等。</p>
+</li>
+</ol>
+<hr>
+<h2 id="3-开始划分你的测试用例"><a href="#3-开始划分你的测试用例" class="headerlink" title="3.开始划分你的测试用例"></a>3.开始划分你的测试用例</h2><h3 id="1-粗狂划分，任意标注"><a href="#1-粗狂划分，任意标注" class="headerlink" title="1. 粗狂划分，任意标注"></a>1. 粗狂划分，任意标注</h3><p>​    将全部功能的正确性验证（happy path）的测试用例定义为高优先级；</p>
+<p>​    将全部由错误或者有边界值验证的测试用例定义为中优先级；</p>
+<p>​    将其他定义为低优先级（这里面主要是非功能测试用例）；</p>
+<h3 id="2-Review-每一个测试用例，升级或者降级"><a href="#2-Review-每一个测试用例，升级或者降级" class="headerlink" title="2. Review 每一个测试用例，升级或者降级"></a>2. Review 每一个测试用例，升级或者降级</h3><p>​    通过对每一个测试用例以及其优先级的标记的重新review，开课测试的重要性以及执行频度等，按照下面进行降级处理。</p>
+<p>​    将功能验证测试分为两组重要和非重要，将“不太重要” 的功能验证测试降级为中等优先级；</p>
+<p>​    将错误和边界测试分为两组重要和非重要，将“重要” 错误和边界测试推广到高优先级；</p>
+<p>​    将非功能性测试分为两组重要和非重要，将“重要” 非功能性测试推广到中等优先级；</p>
+<p>​    对每组高，中，低优先级测试用例重复划分和升 / 降级过程，直到达到优先级之间移动的测试用例数量变为0，终止。</p>
+<h3 id="3-确定BVT"><a href="#3-确定BVT" class="headerlink" title="3. 确定BVT"></a>3. 确定BVT</h3><p>​    将高优先级测试分为两组，分别为致命和严重（如果出BUG就是致命BUG,那么这条测试用例也设定为致命。 将致命的测试用例归并到BVT优先级。）</p>
+<p>​    相对统计的优先级分布BVT 10%-15% ,高 20%-30%，中40%-60% 和低10%-15%。</p>
 
                 
             </div>
@@ -508,7 +544,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2020/12/04/get%E5%92%8Cpost%E7%9A%84%E5%8C%BA%E5%88%AB/">http://example.com/2020/12/04/get%E5%92%8Cpost%E7%9A%84%E5%8C%BA%E5%88%AB/</a>
+                    <a href="http://example.com/2020/12/04/1.hua-fen-ce-shi-yong-li-you-xian-ji-de-hao-chu/">http://example.com/2020/12/04/1.hua-fen-ce-shi-yong-li-you-xian-ji-de-hao-chu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -545,11 +581,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/get-post/">
-                                    <span class="chip bg-color">get-post</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -568,132 +600,6 @@
 
                 </div>
             </div>
-            
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -717,18 +623,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/12/04/get%E5%92%8Cpost%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                <a href="/2020/12/04/android-ios-shou-ji-xiao-shou-bang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="GET与POST区别">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">GET与POST区别</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -738,29 +643,16 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-04
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-04
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95/" class="post-category">
-                                    请求方法
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            阿浪
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/get-post/">
-                        <span class="chip bg-color">get-post</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -772,13 +664,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/12/04/BS%E5%92%8CCS%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                <a href="/2020/12/04/wang-shi-ru-yan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="往事如烟">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">往事如烟</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -985,17 +877,20 @@
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2020</span>
+                <span id="year">2020</span>
             
-            <span id="year">2019</span>
+            <span id="year">2020</span>
             <a href="/about" target="_blank">阿浪</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">6.2k</span>&nbsp;字
             
             
             
@@ -1014,6 +909,50 @@
             </span>
             
             <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "12";
+                    var startDate = "3";
+                    var startHour = "19";
+                    var startMinute = "43";
+                    var startSecond = "34";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
             
             <br>
             

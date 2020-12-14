@@ -579,36 +579,11 @@
     
     
     <entry>
-      <title>Jmeter断言</title>
-      <link href="2020/12/03/jmeter/jmeter-duan-yan/"/>
-      <url>2020/12/03/jmeter/jmeter-duan-yan/</url>
+      <title>Jmeter测试接口</title>
+      <link href="2020/12/03/jmeter/jmeter-ce-shi-jie-kou/"/>
+      <url>2020/12/03/jmeter/jmeter-ce-shi-jie-kou/</url>
       
-        <content type="html"><![CDATA[<p><strong>断言：</strong>验证服务器返回的数据是否满足我们的要求<br> 即LR中的检查点，是对响应结果做一个判断，我们在请求一个网址时会有返回数据，那怎么判断请求是正确的呢，就需要对某一字段或内容进行匹配，如果跟预想的一样就认为请求是正确的，否则是失败的</p><p>使用断言的目的：在request的返回层面增加一层判断机制（因为request成功了，并不代表结果一定正确）</p><p><strong>针对何时使用JMeter断言，下面给出了一些建议：</strong><br> （1）请求使用的是来自“CSV数据集配置”的数据<br> （2）使用的HTTP的POST、PUT、PATCH方法<br> （3）登录和注销后<br> （4）当2xx status codes同时在正面测试和负面测试中返回<br> （5）在API性能测试中<br> （6）在功能测试中<br> （7）有SOAP / XML-RPC请求<br> <strong>需要注意：断言消耗内存，谨慎使用</strong></p><h3 id="断言类型"><a href="#断言类型" class="headerlink" title="断言类型"></a>断言类型</h3><p>如果没有断言只能人工对比对接口返回的数据，接口很多时，比对数据的过程就会非常耗时，而且也容易出错，可以通过Fiddler抓包http请求来设置</p><h5 id="1、响应断言"><a href="#1、响应断言" class="headerlink" title="1、响应断言"></a>1、响应断言</h5><p>在使用该断言时，需要熟练使用正则表达式，如果请求中使用了变量，响应内容里写${variable}</p><p><img src="https://upload-images.jianshu.io/upload_images/5999951-ae6f386241ae0c7c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1019/format/webp" alt="img"></p><p>抓包查看Resopnse.png</p><p>允许用户通过添加模式字符串来比较验证服务器返回的响应，Jmeter提供了很多种匹配规则，断言中设置要测试的模式，实际响应的内容与设计的字符串进行匹配，如果返回的内容包含了字符串，则认为该次测试通过，否则就是失败（模式中的内容也可以参数化）</p><p>对断言做判断，只需添加【监听器–断言结果】<br> 1）<strong>如果断言成功，显示的是HTTP请求名称</strong><br> 2）若失败，则会显示请求名称和失败的原因（“Test failed XXXXXX”内容）</p><p><strong>PS：一个Sampler可以添加多个断言，根据你的检查需求来添加相应的断言，当Sampler下所有的断言都通过了，才算成功 比如在测接口时，返回值是True，只能说明接口是通的，还得继续验证返回的data值是否正确</strong></p><p><img src="https://upload-images.jianshu.io/upload_images/5999951-d47bec560a1af12e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/917/format/webp" alt="img"></p><p>断言.png</p><ul><li>Apply to：一般情况下，使用默认的就行，如果一次发送多个请求（Ajax请求，GET或POST），就需要根据实际断言需要选择其他选项了。</li><li>要测试的响应字段：根据实际需要选择 <ul><li>响应文本<br> 服务器响应文本，一般情况下，我们都是勾选改选项，用于验证服务器返回值。</li><li>Document（text）<br> 通过Apache Tika从各种的文档中提取的文本进行验证，包括响应文本，pdf、word等等各种格式。jmeter会用Apache Tika去解析服务器响应内容，耗内存、也耗时间，解析易失败，尽量少用或不用。多用响应文本方式来进行断言验证</li><li>URL样本<br> 对请求的url进行断言，如果请求没有重定向(302)，那么该url即为请求的url；如果有重定向（切跟随重定向），那么url则包含了请求url和重定向url。</li><li>响应代码<br> 即http响应代码，例如200，404等等，需要注意： 由于jmeter默认情况下认为4xx，5xx时该请求失败，所以在断言这类响应代码时，需要同时勾选Ingore Status，才能正常去做断言。</li><li>响应信息<br> 即响应代码对应的信息，例如OK， Not Found等等这类的。</li><li>Ingore Status 请参见4响应代码的使用说明。</li></ul></li></ul><p>如下常见类似是响应信息，即http响应头信息，主要用于断言当响应头带有唯一或特定意义</p><pre class=" language-dart"><code class="language-dart">      HTTP<span class="token operator">/</span><span class="token number">1.1</span> <span class="token number">200</span> Ok      HTTP<span class="token operator">/</span><span class="token number">1.1</span> <span class="token number">302</span> Found      Response Header <span class="token punctuation">:</span> 响应头信息，例如      Server<span class="token punctuation">:</span> Tengine      Date<span class="token punctuation">:</span> Thu<span class="token punctuation">,</span> <span class="token number">12</span> Mar <span class="token number">2015</span> <span class="token number">09</span><span class="token punctuation">:</span><span class="token number">43</span><span class="token punctuation">:</span><span class="token number">52</span> GMT      Content<span class="token operator">-</span>Type<span class="token punctuation">:</span> text<span class="token operator">/</span>html      Content<span class="token operator">-</span>Length<span class="token punctuation">:</span> 260Connection<span class="token punctuation">:</span> close      Location<span class="token punctuation">:</span> http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token number">404</span><span class="token punctuation">.</span>html      Response Headers</code></pre><ul><li>模式匹配规则：支持正则表达式 <ul><li>包括：返回结果包括指定的内容，当返回值固定时，可以使用返回值做断言，效果和equals相同</li><li>匹配：用正则表达式必须能匹配整个返回值，而不是返回值的一部分</li><li>Equals：返回结果与你指定结果完全一致</li><li>Substring：返回结果是指定结果的字串，不支持正则字符串</li><li>否：相当于取反，即如果上述断言结果为true，勾选“否”选项后，则最终断言结果为false</li></ul></li><li>要测试的模式：要匹配的响应值（字符串或正则表达式），即接口测试结果的期望值或者其他期望值</li></ul><p>转自：<a href="https://www.jianshu.com/p/9d6752c8b565">https://www.jianshu.com/p/9d6752c8b565</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> jmeter </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> jmeter </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Jmeter移动端录制</title>
-      <link href="2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/"/>
-      <url>2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/</url>
-      
-        <content type="html"><![CDATA[<p>Jmeter移动端录制</p><p>前置条件： 本机与移动端必须保持在同一个网段上</p><p>友情提示：移动端录制https网址不下载https证书的话参数会出现乱码</p><p>可用Fiddler提供的Https证书源  在移动端网址输入：</p><p>http://本机IP地址:8888/进行证书下载</p><h3 id="测试计划右键创建非测试元件下的HTTP代理服务器"><a href="#测试计划右键创建非测试元件下的HTTP代理服务器" class="headerlink" title="测试计划右键创建非测试元件下的HTTP代理服务器"></a>测试计划右键创建非测试元件下的HTTP代理服务器</h3><img src="/2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/1.png" class="" title="This is an image"><h3 id="为测试计划添加一个线程组-HTTP代理服务器的目标监控器指向刚创建的线程组-进行"><a href="#为测试计划添加一个线程组-HTTP代理服务器的目标监控器指向刚创建的线程组-进行" class="headerlink" title="为测试计划添加一个线程组,HTTP代理服务器的目标监控器指向刚创建的线程组 进行"></a>为测试计划添加一个线程组,HTTP代理服务器的目标监控器指向刚创建的线程组 进行</h3><h3 id="会讲录制的脚步保存到线程组里"><a href="#会讲录制的脚步保存到线程组里" class="headerlink" title="会讲录制的脚步保存到线程组里"></a>会讲录制的脚步保存到线程组里</h3><img src="/2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/2.png" class="" title="This is an image"><h3 id="移动端配置"><a href="#移动端配置" class="headerlink" title="移动端配置"></a>移动端配置</h3><h3 id="长按连接到的网络-点击修改网络-点击显示高级选择-将代理改为手动"><a href="#长按连接到的网络-点击修改网络-点击显示高级选择-将代理改为手动" class="headerlink" title="长按连接到的网络 点击修改网络 点击显示高级选择 将代理改为手动"></a>长按连接到的网络 点击修改网络 点击显示高级选择 将代理改为手动</h3><h3 id="在本机查看连接到网络的IPv4-的地址填写到-移动端的服务器主机名"><a href="#在本机查看连接到网络的IPv4-的地址填写到-移动端的服务器主机名" class="headerlink" title="在本机查看连接到网络的IPv4 的地址填写到 移动端的服务器主机名"></a>在本机查看连接到网络的IPv4 的地址填写到 移动端的服务器主机名</h3><img src="/2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/3.png" class="" title="This is an image"><p>端口号为：8888</p><p>开始录制即可</p><img src="/2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/4.png" class="" title="This is an image"><p>效果：</p><img src="/2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/5.png" class="" title="This is an image">]]></content>
+        <content type="html"><![CDATA[<h3 id="创建线程组"><a href="#创建线程组" class="headerlink" title="创建线程组"></a>创建线程组</h3><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%BB%841.png" class="" title="This is an 创建线程组 image"><h3 id="添加HTTP请求"><a href="#添加HTTP请求" class="headerlink" title="添加HTTP请求"></a>添加HTTP请求</h3><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%821.png" class="" title="This is an 添加http请求1 image"><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%822.png" class="" title="This is an 添加http请求2 image"><p>查看结果树</p><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%A0%91.png" class="" title="This is an 查看结果树 image">]]></content>
       
       
       <categories>
@@ -654,11 +629,36 @@
     
     
     <entry>
-      <title>Jmeter测试接口</title>
-      <link href="2020/12/03/jmeter/jmeter-ce-shi-jie-kou/"/>
-      <url>2020/12/03/jmeter/jmeter-ce-shi-jie-kou/</url>
+      <title>Jmeter移动端录制</title>
+      <link href="2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/"/>
+      <url>2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/</url>
       
-        <content type="html"><![CDATA[<h3 id="创建线程组"><a href="#创建线程组" class="headerlink" title="创建线程组"></a>创建线程组</h3><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%BB%841.png" class="" title="This is an 创建线程组 image"><h3 id="添加HTTP请求"><a href="#添加HTTP请求" class="headerlink" title="添加HTTP请求"></a>添加HTTP请求</h3><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%821.png" class="" title="This is an 添加http请求1 image"><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%822.png" class="" title="This is an 添加http请求2 image"><p>查看结果树</p><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%A0%91.png" class="" title="This is an 查看结果树 image">]]></content>
+        <content type="html"><![CDATA[<p>Jmeter移动端录制</p><p>前置条件： 本机与移动端必须保持在同一个网段上</p><p>友情提示：移动端录制https网址不下载https证书的话参数会出现乱码</p><p>可用Fiddler提供的Https证书源  在移动端网址输入：</p><p>http://本机IP地址:8888/进行证书下载</p><h3 id="测试计划右键创建非测试元件下的HTTP代理服务器"><a href="#测试计划右键创建非测试元件下的HTTP代理服务器" class="headerlink" title="测试计划右键创建非测试元件下的HTTP代理服务器"></a>测试计划右键创建非测试元件下的HTTP代理服务器</h3><img src="/2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/1.png" class="" title="This is an image"><h3 id="为测试计划添加一个线程组-HTTP代理服务器的目标监控器指向刚创建的线程组-进行"><a href="#为测试计划添加一个线程组-HTTP代理服务器的目标监控器指向刚创建的线程组-进行" class="headerlink" title="为测试计划添加一个线程组,HTTP代理服务器的目标监控器指向刚创建的线程组 进行"></a>为测试计划添加一个线程组,HTTP代理服务器的目标监控器指向刚创建的线程组 进行</h3><h3 id="会讲录制的脚步保存到线程组里"><a href="#会讲录制的脚步保存到线程组里" class="headerlink" title="会讲录制的脚步保存到线程组里"></a>会讲录制的脚步保存到线程组里</h3><img src="/2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/2.png" class="" title="This is an image"><h3 id="移动端配置"><a href="#移动端配置" class="headerlink" title="移动端配置"></a>移动端配置</h3><h3 id="长按连接到的网络-点击修改网络-点击显示高级选择-将代理改为手动"><a href="#长按连接到的网络-点击修改网络-点击显示高级选择-将代理改为手动" class="headerlink" title="长按连接到的网络 点击修改网络 点击显示高级选择 将代理改为手动"></a>长按连接到的网络 点击修改网络 点击显示高级选择 将代理改为手动</h3><h3 id="在本机查看连接到网络的IPv4-的地址填写到-移动端的服务器主机名"><a href="#在本机查看连接到网络的IPv4-的地址填写到-移动端的服务器主机名" class="headerlink" title="在本机查看连接到网络的IPv4 的地址填写到 移动端的服务器主机名"></a>在本机查看连接到网络的IPv4 的地址填写到 移动端的服务器主机名</h3><img src="/2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/3.png" class="" title="This is an image"><p>端口号为：8888</p><p>开始录制即可</p><img src="/2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/4.png" class="" title="This is an image"><p>效果：</p><img src="/2020/12/03/jmeter/jmeter-yi-dong-duan-lu-zhi/5.png" class="" title="This is an image">]]></content>
+      
+      
+      <categories>
+          
+          <category> jmeter </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> jmeter </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Jmeter断言</title>
+      <link href="2020/12/03/jmeter/jmeter-duan-yan/"/>
+      <url>2020/12/03/jmeter/jmeter-duan-yan/</url>
+      
+        <content type="html"><![CDATA[<p><strong>断言：</strong>验证服务器返回的数据是否满足我们的要求<br> 即LR中的检查点，是对响应结果做一个判断，我们在请求一个网址时会有返回数据，那怎么判断请求是正确的呢，就需要对某一字段或内容进行匹配，如果跟预想的一样就认为请求是正确的，否则是失败的</p><p>使用断言的目的：在request的返回层面增加一层判断机制（因为request成功了，并不代表结果一定正确）</p><p><strong>针对何时使用JMeter断言，下面给出了一些建议：</strong><br> （1）请求使用的是来自“CSV数据集配置”的数据<br> （2）使用的HTTP的POST、PUT、PATCH方法<br> （3）登录和注销后<br> （4）当2xx status codes同时在正面测试和负面测试中返回<br> （5）在API性能测试中<br> （6）在功能测试中<br> （7）有SOAP / XML-RPC请求<br> <strong>需要注意：断言消耗内存，谨慎使用</strong></p><h3 id="断言类型"><a href="#断言类型" class="headerlink" title="断言类型"></a>断言类型</h3><p>如果没有断言只能人工对比对接口返回的数据，接口很多时，比对数据的过程就会非常耗时，而且也容易出错，可以通过Fiddler抓包http请求来设置</p><h5 id="1、响应断言"><a href="#1、响应断言" class="headerlink" title="1、响应断言"></a>1、响应断言</h5><p>在使用该断言时，需要熟练使用正则表达式，如果请求中使用了变量，响应内容里写${variable}</p><p><img src="https://upload-images.jianshu.io/upload_images/5999951-ae6f386241ae0c7c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1019/format/webp" alt="img"></p><p>抓包查看Resopnse.png</p><p>允许用户通过添加模式字符串来比较验证服务器返回的响应，Jmeter提供了很多种匹配规则，断言中设置要测试的模式，实际响应的内容与设计的字符串进行匹配，如果返回的内容包含了字符串，则认为该次测试通过，否则就是失败（模式中的内容也可以参数化）</p><p>对断言做判断，只需添加【监听器–断言结果】<br> 1）<strong>如果断言成功，显示的是HTTP请求名称</strong><br> 2）若失败，则会显示请求名称和失败的原因（“Test failed XXXXXX”内容）</p><p><strong>PS：一个Sampler可以添加多个断言，根据你的检查需求来添加相应的断言，当Sampler下所有的断言都通过了，才算成功 比如在测接口时，返回值是True，只能说明接口是通的，还得继续验证返回的data值是否正确</strong></p><p><img src="https://upload-images.jianshu.io/upload_images/5999951-d47bec560a1af12e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/917/format/webp" alt="img"></p><p>断言.png</p><ul><li>Apply to：一般情况下，使用默认的就行，如果一次发送多个请求（Ajax请求，GET或POST），就需要根据实际断言需要选择其他选项了。</li><li>要测试的响应字段：根据实际需要选择 <ul><li>响应文本<br> 服务器响应文本，一般情况下，我们都是勾选改选项，用于验证服务器返回值。</li><li>Document（text）<br> 通过Apache Tika从各种的文档中提取的文本进行验证，包括响应文本，pdf、word等等各种格式。jmeter会用Apache Tika去解析服务器响应内容，耗内存、也耗时间，解析易失败，尽量少用或不用。多用响应文本方式来进行断言验证</li><li>URL样本<br> 对请求的url进行断言，如果请求没有重定向(302)，那么该url即为请求的url；如果有重定向（切跟随重定向），那么url则包含了请求url和重定向url。</li><li>响应代码<br> 即http响应代码，例如200，404等等，需要注意： 由于jmeter默认情况下认为4xx，5xx时该请求失败，所以在断言这类响应代码时，需要同时勾选Ingore Status，才能正常去做断言。</li><li>响应信息<br> 即响应代码对应的信息，例如OK， Not Found等等这类的。</li><li>Ingore Status 请参见4响应代码的使用说明。</li></ul></li></ul><p>如下常见类似是响应信息，即http响应头信息，主要用于断言当响应头带有唯一或特定意义</p><pre class=" language-dart"><code class="language-dart">      HTTP<span class="token operator">/</span><span class="token number">1.1</span> <span class="token number">200</span> Ok      HTTP<span class="token operator">/</span><span class="token number">1.1</span> <span class="token number">302</span> Found      Response Header <span class="token punctuation">:</span> 响应头信息，例如      Server<span class="token punctuation">:</span> Tengine      Date<span class="token punctuation">:</span> Thu<span class="token punctuation">,</span> <span class="token number">12</span> Mar <span class="token number">2015</span> <span class="token number">09</span><span class="token punctuation">:</span><span class="token number">43</span><span class="token punctuation">:</span><span class="token number">52</span> GMT      Content<span class="token operator">-</span>Type<span class="token punctuation">:</span> text<span class="token operator">/</span>html      Content<span class="token operator">-</span>Length<span class="token punctuation">:</span> 260Connection<span class="token punctuation">:</span> close      Location<span class="token punctuation">:</span> http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token number">404</span><span class="token punctuation">.</span>html      Response Headers</code></pre><ul><li>模式匹配规则：支持正则表达式 <ul><li>包括：返回结果包括指定的内容，当返回值固定时，可以使用返回值做断言，效果和equals相同</li><li>匹配：用正则表达式必须能匹配整个返回值，而不是返回值的一部分</li><li>Equals：返回结果与你指定结果完全一致</li><li>Substring：返回结果是指定结果的字串，不支持正则字符串</li><li>否：相当于取反，即如果上述断言结果为true，勾选“否”选项后，则最终断言结果为false</li></ul></li><li>要测试的模式：要匹配的响应值（字符串或正则表达式），即接口测试结果的期望值或者其他期望值</li></ul><p>转自：<a href="https://www.jianshu.com/p/9d6752c8b565">https://www.jianshu.com/p/9d6752c8b565</a></p>]]></content>
       
       
       <categories>

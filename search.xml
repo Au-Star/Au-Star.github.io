@@ -368,6 +368,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 搭建博客网站 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -473,13 +479,25 @@
     
     
     <entry>
-      <title></title>
+      <title>Badboy参数录制</title>
       <link href="2020/12/04/badboy-can-shu-lu-zhi/badboy-can-shu-lu-zhi/"/>
       <url>2020/12/04/badboy-can-shu-lu-zhi/badboy-can-shu-lu-zhi/</url>
       
         <content type="html"><![CDATA[<h3 id="打开badboy搜索框输入需要录制的网址进行访问"><a href="#打开badboy搜索框输入需要录制的网址进行访问" class="headerlink" title="打开badboy搜索框输入需要录制的网址进行访问"></a>打开badboy搜索框输入需要录制的网址进行访问</h3><img src="/2020/12/04/badboy-can-shu-lu-zhi/badboy-can-shu-lu-zhi/1.png" class=""><h3 id="开始对web网址的信息进行录制，在网页中操作之后，会保存所有的信息"><a href="#开始对web网址的信息进行录制，在网页中操作之后，会保存所有的信息" class="headerlink" title="开始对web网址的信息进行录制，在网页中操作之后，会保存所有的信息"></a>开始对web网址的信息进行录制，在网页中操作之后，会保存所有的信息</h3><img src="/2020/12/04/badboy-can-shu-lu-zhi/badboy-can-shu-lu-zhi/2.png" class=""><h3 id="需要停止录制再次点击红色录制即可，录制完毕左边已经生成录制的脚步"><a href="#需要停止录制再次点击红色录制即可，录制完毕左边已经生成录制的脚步" class="headerlink" title="需要停止录制再次点击红色录制即可，录制完毕左边已经生成录制的脚步"></a>需要停止录制再次点击红色录制即可，录制完毕左边已经生成录制的脚步</h3><img src="/2020/12/04/badboy-can-shu-lu-zhi/badboy-can-shu-lu-zhi/3.png" class=""><h3 id="完成录制后，需要进行把脚本导出，点击菜单中的file选择菜单"><a href="#完成录制后，需要进行把脚本导出，点击菜单中的file选择菜单" class="headerlink" title="完成录制后，需要进行把脚本导出，点击菜单中的file选择菜单"></a>完成录制后，需要进行把脚本导出，点击菜单中的file选择菜单</h3><h3 id="下拉框选择-export-to-jmeter"><a href="#下拉框选择-export-to-jmeter" class="headerlink" title="下拉框选择 export to jmeter"></a>下拉框选择 export to jmeter</h3><img src="/2020/12/04/badboy-can-shu-lu-zhi/badboy-can-shu-lu-zhi/4.png" class=""><h3 id="本地会出现脚本文件-jmeter-直接调用即可"><a href="#本地会出现脚本文件-jmeter-直接调用即可" class="headerlink" title="本地会出现脚本文件 jmeter 直接调用即可"></a>本地会出现脚本文件 jmeter 直接调用即可</h3><h3 id="直接拖动到jmeter窗口即可-参数自动填充-可进行后续操作"><a href="#直接拖动到jmeter窗口即可-参数自动填充-可进行后续操作" class="headerlink" title="直接拖动到jmeter窗口即可 参数自动填充 可进行后续操作"></a>直接拖动到jmeter窗口即可 参数自动填充 可进行后续操作</h3><img src="/2020/12/04/badboy-can-shu-lu-zhi/badboy-can-shu-lu-zhi/5.png" class="">]]></content>
       
       
+      <categories>
+          
+          <category> Badboy参数录制 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Badboy参数录制 </tag>
+            
+        </tags>
       
     </entry>
     

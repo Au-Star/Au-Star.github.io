@@ -4,6 +4,131 @@
   
     
     <entry>
+      <title>Sirl语音助手测试点</title>
+      <link href="2020/12/18/sirl-yu-yin-zhu-shou-ce-shi-dian/sirl-yu-yin-zhu-shou-ce-shi-dian/"/>
+      <url>2020/12/18/sirl-yu-yin-zhu-shou-ce-shi-dian/sirl-yu-yin-zhu-shou-ce-shi-dian/</url>
+      
+        <content type="html"><![CDATA[<img src="/2020/12/18/sirl-yu-yin-zhu-shou-ce-shi-dian/sirl-yu-yin-zhu-shou-ce-shi-dian/Sirl%E8%AF%AD%E9%9F%B3%E5%8A%A9%E6%89%8B%E6%B5%8B%E8%AF%95%E7%82%B9.png" class=""><p>界面：<br>1.界面设计是否合理，整洁，美观<br>2.录音按钮是否会根据手机屏幕分辨率的大小而发生相应的改变<br>3.录音完成，是否可以回到刚点击的样子<br>功能：<br>1、设备是否是开启的状态下<br>2、喊Siri的时候，Siri是否可以回应<br>3、喊Siri的时候，是否会成功弹出Siri界面<br>4、喊Siri的时候是否可以成功调取麦克风<br>5、是否可以在任何软件里喊Siri<br>6、在其他软件里喊Siri的时候，其他软件是否会停止<br>7、在其他软件里喊Siri的时候，其他软件是否会退出该软件的界面<br>8、Siri的回应语是否是默认的<br>9、Siri的回应语是否可以修改<br>10、Siri点击按钮是否可以成功调用录音功能<br>11、如果命令说错了，取消录音按钮，是否可以取消已说的内容<br>12、录音结束以后是否可以成功执行语音命令<br>13、收到指令以后，大概多久会执行<br>14、收到指令以后是否可以立即执行指令<br>15、语音是否可以完整录入全部内容<br>16、录入的内容是否会显示<br>17、是否可以查看自己之前说的指令<br>18、Siri录音支持什么语音<br>19、喊Siri说打电话，是否可以成功跳转到拨号界面<br>20、喊Siri，直接说手机号，是否也可以成功跳转到拨号界面<br>21、喊Siri，直接说手机号，是否可以直接拨打手机号出去<br>22、喊Siri，Siri大概多久回应<br>23、喊Siri，说要拨打人的名字，是否是要打电话人的名字<br>24、喊Siri，说手机号，是否和想要拨打人的名字一致<br>25、如果喊的人说话不标准能不能识别，以及会不会做相应的操作<br>网络：<br>1、在弱网或者网络不好的情况下，喊Siri，Siri是否会成功回应<br>2、如果喊完Siri，进入弱网或者网络不好的地方，说出的语音指令是否依然会执行<br>3、在弱网或者网络不好的地方喊Siri，Siri大概多久回应<br>4、如果没有网络Siri是否会回应你<br>安全：<br>1、是否支持多人同时喊Siri<br>2、喊Siri是否只认手机使用者的声音<br>3、其他人喊Siri，Siri是否会回应<br>4、是否可通过喊Siri，修改手机号的信息<br>5、是否可通过喊Siri，修改手机号备注名称</p><p>性能：<br>1、如果连续多次喊Siri，Siri每一次都会成功回应吗<br>2、如果同时说多个指令，Siri会都执行吗<br>3、如果点击录音键是否无法录音</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 测试点 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>两表联查(金融)</title>
+      <link href="2020/12/18/liang-biao-lian-cha-jin-rong/liang-biao-lian-cha-jin-rong/"/>
+      <url>2020/12/18/liang-biao-lian-cha-jin-rong/liang-biao-lian-cha-jin-rong/</url>
+      
+        <content type="html"><![CDATA[<img src="/2020/12/18/liang-biao-lian-cha-jin-rong/liang-biao-lian-cha-jin-rong/1.jpg" class=""><p>1.先创建数据库<br>create database cstwo charset=utf8;<br>2.打开要用数据库<br>use student;<br>3.写表结构<br>CREATE TABLE userinfo(<br>userid int PRIMARY KEY NOT NULL AUTO_INCREMENT,<br>username varchar(255) DEFAULT NULL,<br>dept varchar(20),<br>listLoginTime timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,<br>salay double (6,2)<br>);<br>4.查看表结构<br>desc userinfo;<br>5.查看表内所欲数据<br>select * from userinfo<br>6.添加数据<br>insert into userinfo values(0,“张三”,“dev”,now(),2000.00),<br>(0,“李四”,“dev”,now(),4100.00),<br>(0,“王五”,“op”,now(),1600.00),<br>(0,“赵六”,“op”,now(),900.00),<br>(0,“前七”,“sale”,now(),1000.00));<br>7.修改数据</p><p>update userinfo set salay = 1700 where username=‘王五’<br>8.两表连查<br>SELECT dept,count(*) as count FROM userinfo GROUP BY dept HAVING count(dept) &gt;1 ORDER BY count DESC;</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> mysql </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mysql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>888瓶水 一瓶毒 10只鼠</title>
+      <link href="2020/12/18/888-ping-shui-yi-ping-du-10-zhi-shu/888-ping-shui-yi-ping-du-10-zhi-shu/"/>
+      <url>2020/12/18/888-ping-shui-yi-ping-du-10-zhi-shu/888-ping-shui-yi-ping-du-10-zhi-shu/</url>
+      
+        <content type="html"><![CDATA[<h3 id="有888瓶编了号码的水及10只健康的小白鼠，其中一瓶水有毒，小白鼠饮用毒水一天后会死，最少需要几天可以找到哪瓶水有毒？"><a href="#有888瓶编了号码的水及10只健康的小白鼠，其中一瓶水有毒，小白鼠饮用毒水一天后会死，最少需要几天可以找到哪瓶水有毒？" class="headerlink" title="有888瓶编了号码的水及10只健康的小白鼠，其中一瓶水有毒，小白鼠饮用毒水一天后会死，最少需要几天可以找到哪瓶水有毒？"></a>有888瓶编了号码的水及10只健康的小白鼠，其中一瓶水有毒，小白鼠饮用毒水一天后会死，最少需要几天可以找到哪瓶水有毒？</h3><pre class=" language-python"><code class="language-python">十个列表，每个小白鼠一个a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>b <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>c <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>d <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>e <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>f <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>g <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>h <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>i <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>j <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#888瓶水标签0-889</span>li <span class="token operator">=</span> list<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">889</span><span class="token punctuation">)</span><span class="token punctuation">)</span>取出一瓶水，把标签十进制数字转化为二进制<span class="token keyword">for</span> x <span class="token keyword">in</span> li<span class="token punctuation">:</span><span class="token comment" spellcheck="true"># 定义一个空列表，存储每次二进制数，存进列表里的二进制数是字符格式的</span>li1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>er <span class="token operator">=</span> bin<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token comment" spellcheck="true"># print (er)</span><span class="token keyword">for</span> y <span class="token keyword">in</span> er<span class="token punctuation">:</span><span class="token keyword">if</span> y <span class="token operator">==</span> b<span class="token punctuation">:</span><span class="token keyword">continue</span><span class="token keyword">else</span><span class="token punctuation">:</span>li1<span class="token punctuation">.</span>append<span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 把li1列表里的元素顺序反向排列</span>list<span class="token punctuation">.</span>reverse<span class="token punctuation">(</span>li1<span class="token punctuation">)</span><span class="token comment" spellcheck="true"># print (li1)</span><span class="token comment" spellcheck="true"># 计算li1列表里元素个数，根据元素个数生成一个列表，每次从li1里拿元素用</span>n <span class="token operator">=</span> list<span class="token punctuation">(</span>range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>li1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># print (n)</span><span class="token keyword">for</span> y <span class="token keyword">in</span> n<span class="token punctuation">:</span><span class="token comment" spellcheck="true"># print (y)</span><span class="token comment" spellcheck="true"># print (li1[y])</span><span class="token comment" spellcheck="true"># print (x)</span><span class="token comment" spellcheck="true"># print (type(li1[y]))</span><span class="token comment" spellcheck="true"># li1这个二进制列表里拿一个数，这个数为1的时候，就是把原十进制数对应水编号给y小白鼠喝</span><span class="token keyword">if</span> li1<span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">==</span> ‘<span class="token number">1</span>’<span class="token punctuation">:</span><span class="token comment" spellcheck="true"># print (x)</span><span class="token comment" spellcheck="true"># print (type(y))</span><span class="token comment" spellcheck="true"># print (y)</span><span class="token keyword">if</span> y <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true"># print (y)</span>a<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token keyword">elif</span> y <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true"># print (y)</span>b<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token keyword">elif</span> y <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>c<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token keyword">elif</span> y <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">:</span>d<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token keyword">elif</span> y <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>e<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token keyword">elif</span> y <span class="token operator">==</span> <span class="token number">5</span><span class="token punctuation">:</span>f<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token keyword">elif</span> y <span class="token operator">==</span> <span class="token number">6</span><span class="token punctuation">:</span>g<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token keyword">elif</span> y <span class="token operator">==</span> <span class="token number">7</span><span class="token punctuation">:</span>h<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token keyword">elif</span> y <span class="token operator">==</span> <span class="token number">8</span><span class="token punctuation">:</span>i<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token keyword">else</span><span class="token punctuation">:</span>j<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token comment" spellcheck="true"># else:</span><span class="token comment" spellcheck="true"># continue</span><span class="token keyword">print</span><span class="token punctuation">(</span>“<span class="token number">888</span>瓶水打上标签，经过下面计算，每只小白鼠喝下下面计算的混合液。”<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>“第一只小白鼠喝下水瓶标签：”<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>“第二只小白鼠喝下水瓶标签：”<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>“第三只小白鼠喝下水瓶标签：”<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>“第四只小白鼠喝下水瓶标签：”<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>“第五只小白鼠喝下水瓶标签：”<span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>“第六只小白鼠喝下水瓶标签：”<span class="token punctuation">,</span> f<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>“第七只小白鼠喝下水瓶标签：”<span class="token punctuation">,</span> g<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>“第八只小白鼠喝下水瓶标签：”<span class="token punctuation">,</span> h<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>“第九只小白鼠喝下水瓶标签：”<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>“第十只小白鼠喝下水瓶标签：”<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>“如果第一只，第三只，第五只小白鼠死了，就是<span class="token number">0b0000010101</span>（二进制数，转化为十进制数是<span class="token number">21</span>），第<span class="token number">21</span>瓶水有毒。”<span class="token punctuation">)</span><span class="token number">888</span>瓶水打上标签，经过下面计算，每只小白鼠喝下下面计算的混合液。如果第一只，第三只，第五只小白鼠死了，就是<span class="token number">0b0000010101</span>（二进制数，转化为十进制数是<span class="token number">21</span>），第<span class="token number">21</span>瓶水有毒。</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 逻辑题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 逻辑题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>24小球 找一个轻的</title>
+      <link href="2020/12/18/24-xiao-qiu-zhao-yi-ge-qing-de/24-xiao-qiu-zhao-yi-ge-qing-de/"/>
+      <url>2020/12/18/24-xiao-qiu-zhao-yi-ge-qing-de/24-xiao-qiu-zhao-yi-ge-qing-de/</url>
+      
+        <content type="html"><![CDATA[<h3 id="有24颗外观完全一样的小球，其中有一个是空心的，现在只有一个天平，最少称几次能找出这个特殊的球？"><a href="#有24颗外观完全一样的小球，其中有一个是空心的，现在只有一个天平，最少称几次能找出这个特殊的球？" class="headerlink" title="有24颗外观完全一样的小球，其中有一个是空心的，现在只有一个天平，最少称几次能找出这个特殊的球？"></a>有24颗外观完全一样的小球，其中有一个是空心的，现在只有一个天平，最少称几次能找出这个特殊的球？</h3><p>第一次：天平左右盘分别放12颗取出总质量轻的12颗<br>第二次：天平左右盘分别放取出的12颗中6颗取出总质量轻的6颗<br>第三次：天平左右盘分别放取出的6颗中3颗取出总质量轻的3颗<br>第四次：天平左右盘分别放取出的3颗中1颗若平衡剩余一颗为假的若不平衡升高的一颗为假的</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 逻辑题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 逻辑题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>淘宝购物车测试点</title>
+      <link href="2020/12/18/tao-bao-gou-wu-che-ce-shi-dian/tao-bao-gou-wu-che-ce-shi-dian/"/>
+      <url>2020/12/18/tao-bao-gou-wu-che-ce-shi-dian/tao-bao-gou-wu-che-ce-shi-dian/</url>
+      
+        <content type="html"><![CDATA[<p><strong>关于淘宝购物车的测试用例可以从以下几个方面来进行考虑。</strong></p><h2 id="1-界面测试"><a href="#1-界面测试" class="headerlink" title="1.界面测试"></a>1.界面测试</h2><ul><li>打开淘宝购物车页面后，页面的布局是否合理，是否完整。</li><li>不同卖家的商品在不同的table区域显示，区分明显。</li><li>页面的功能按钮可以正常显示。</li><li>商品的最下方显示失效宝贝。</li><li>页面的最低端显示“你可能喜欢”</li><li>向下滑动页面，在购物车顶端展示“购物车”。</li><li>购物车中如果存在有商品降价、库存不足、限购件数等，在商品详情的下面，会有对应的字体展示。</li></ul><h2 id="2-基本功能"><a href="#2-基本功能" class="headerlink" title="2.基本功能"></a>2.基本功能</h2><ul><li>购物车页面的所有连接是否正常。</li><li>从商品信息页面添加的商品能显示在购物车中。</li><li>若未登录，点击购物车中的商品直接进行结算，则提示用户输入用户名和密码，或者提示用户进行注册。</li><li>若没有选择任何商品，点击结算，则提示用户“请添加要结算的商品”。</li><li>勾选商品后，已选商品的总价（和优惠满减活动）会显示。</li><li>勾选商品，点击结算按钮后，进去确认订单信息页面。</li><li>购物车页面中，可以对添加商品信息做信息的修改，并自动保存成功。</li><li>可以在购物车中重新修改商品规格。</li><li>购物车能添加的商品种类是有数量上限的。</li><li>结算的时候商品可以全选，选择底部的全选按钮。</li><li>可以在购物车页面对宝贝进行管理。</li></ul><h2 id="3-性能测试"><a href="#3-性能测试" class="headerlink" title="3.性能测试"></a>3.性能测试</h2><ul><li>打开购物车时间是否在已定的用户可以棘手的时间范围内。</li><li>编辑购物车：删除、添加商品需要的时间。</li><li>在购物车页面选择需要购买的商品进行结算的时候，结算金额可不可以实时显示。</li><li>清空失效商品需要的时间。</li></ul><h2 id="4-兼容性测试"><a href="#4-兼容性测试" class="headerlink" title="4.兼容性测试"></a>4.兼容性测试</h2><ul><li>iOS：不同型号，不同的iOS系统。</li><li>安卓：不同品牌，不同型号，不同的安卓系统。</li></ul><h2 id="5-网络环境"><a href="#5-网络环境" class="headerlink" title="5.网络环境"></a>5.网络环境</h2><ul><li>3G、4G、WiFi网络环境下应用的各功能可正常运行。</li><li>网络异常时，数据交换是否会有提醒。</li><li>中途断网再很快连网，数据是否可以自动恢复，正常加载。</li><li>只允许内网访问的APP，在连接到外网时是否会有提醒。</li></ul><h2 id="6-异常测试"><a href="#6-异常测试" class="headerlink" title="6.异常测试"></a>6.异常测试</h2><ul><li>没有内存时，APP是否能够正常相应。</li><li>横竖屏切换展示。</li><li>APP运行时网络中断。</li><li>反复操作某一个功能，不断点击和刷新，是否出现闪退。</li><li>APP运行时接入电话、短信、社交软件的信息提示时，是否能够正常运行。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 测试点 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python基础练习</title>
       <link href="2020/12/15/python-ji-chu-lian-xi/"/>
       <url>2020/12/15/python-ji-chu-lian-xi/</url>
@@ -679,11 +804,11 @@
     
     
     <entry>
-      <title>Jmeter连接数据库</title>
-      <link href="2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/"/>
-      <url>2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/</url>
+      <title>Jmeter测试接口</title>
+      <link href="2020/12/03/jmeter/jmeter-ce-shi-jie-kou/"/>
+      <url>2020/12/03/jmeter/jmeter-ce-shi-jie-kou/</url>
       
-        <content type="html"><![CDATA[<h3 id="导入Jar包"><a href="#导入Jar包" class="headerlink" title="导入Jar包"></a>导入Jar包</h3><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E5%AF%BC%E5%8C%85.png" class="" title="This is an 导包 image"><h3 id="创建元件"><a href="#创建元件" class="headerlink" title="创建元件"></a>创建元件</h3><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E5%88%9B%E5%BB%BA%E5%85%83%E4%BB%B6.png" class="" title="This is an 创建元件 image"><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E5%8F%82%E6%95%B0.png" class="" title="This is an 参数 image"><h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E6%93%8D%E4%BD%9C1.png" class="" title="This is an 操作1 image"><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E6%93%8D%E4%BD%9C2.png" class="" title="This is an 操作2 image"><p>多语句执行</p><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E5%A4%9ASQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C1.png" class="" title="This is an 多SQL语句执行1 image"><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E5%A4%9ASQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C2.png" class="" title="This is an 多SQL语句执行2 image"><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E5%A4%9ASQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C3.png" class="" title="This is an 多SQL语句执行3 image">]]></content>
+        <content type="html"><![CDATA[<h3 id="创建线程组"><a href="#创建线程组" class="headerlink" title="创建线程组"></a>创建线程组</h3><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%BB%841.png" class="" title="This is an 创建线程组 image"><h3 id="添加HTTP请求"><a href="#添加HTTP请求" class="headerlink" title="添加HTTP请求"></a>添加HTTP请求</h3><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%821.png" class="" title="This is an 添加http请求1 image"><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%822.png" class="" title="This is an 添加http请求2 image"><p>查看结果树</p><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%A0%91.png" class="" title="This is an 查看结果树 image">]]></content>
       
       
       <categories>
@@ -704,11 +829,11 @@
     
     
     <entry>
-      <title>Jmeter测试接口</title>
-      <link href="2020/12/03/jmeter/jmeter-ce-shi-jie-kou/"/>
-      <url>2020/12/03/jmeter/jmeter-ce-shi-jie-kou/</url>
+      <title>Jmeter连接数据库</title>
+      <link href="2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/"/>
+      <url>2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/</url>
       
-        <content type="html"><![CDATA[<h3 id="创建线程组"><a href="#创建线程组" class="headerlink" title="创建线程组"></a>创建线程组</h3><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%BB%841.png" class="" title="This is an 创建线程组 image"><h3 id="添加HTTP请求"><a href="#添加HTTP请求" class="headerlink" title="添加HTTP请求"></a>添加HTTP请求</h3><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%821.png" class="" title="This is an 添加http请求1 image"><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%822.png" class="" title="This is an 添加http请求2 image"><p>查看结果树</p><img src="/2020/12/03/jmeter/jmeter-ce-shi-jie-kou/%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%A0%91.png" class="" title="This is an 查看结果树 image">]]></content>
+        <content type="html"><![CDATA[<h3 id="导入Jar包"><a href="#导入Jar包" class="headerlink" title="导入Jar包"></a>导入Jar包</h3><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E5%AF%BC%E5%8C%85.png" class="" title="This is an 导包 image"><h3 id="创建元件"><a href="#创建元件" class="headerlink" title="创建元件"></a>创建元件</h3><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E5%88%9B%E5%BB%BA%E5%85%83%E4%BB%B6.png" class="" title="This is an 创建元件 image"><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E5%8F%82%E6%95%B0.png" class="" title="This is an 参数 image"><h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E6%93%8D%E4%BD%9C1.png" class="" title="This is an 操作1 image"><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E6%93%8D%E4%BD%9C2.png" class="" title="This is an 操作2 image"><p>多语句执行</p><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E5%A4%9ASQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C1.png" class="" title="This is an 多SQL语句执行1 image"><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E5%A4%9ASQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C2.png" class="" title="This is an 多SQL语句执行2 image"><img src="/2020/12/03/jmeter/jmeter-lian-jie-shu-ju-ku/%E5%A4%9ASQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C3.png" class="" title="This is an 多SQL语句执行3 image">]]></content>
       
       
       <categories>

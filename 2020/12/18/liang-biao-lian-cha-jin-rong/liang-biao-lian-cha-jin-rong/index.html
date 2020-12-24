@@ -499,7 +499,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <img src="/2020/12/18/liang-biao-lian-cha-jin-rong/liang-biao-lian-cha-jin-rong/1.jpg" class="">
+                <img src="/2020/12/18/liang-biao-lian-cha-jin-rong/liang-biao-lian-cha-jin-rong/1.jpg" class>
 
 <p>1.先创建数据库<br>create database cstwo charset=utf8;<br>2.打开要用数据库<br>use student;<br>3.写表结构<br>CREATE TABLE userinfo(<br>userid int PRIMARY KEY NOT NULL AUTO_INCREMENT,<br>username varchar(255) DEFAULT NULL,<br>dept varchar(20),<br>listLoginTime timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,<br>salay double (6,2)<br>);<br>4.查看表结构<br>desc userinfo;<br>5.查看表内所欲数据<br>select * from userinfo<br>6.添加数据<br>insert into userinfo values(0,“张三”,“dev”,now(),2000.00),<br>(0,“李四”,“dev”,now(),4100.00),<br>(0,“王五”,“op”,now(),1600.00),<br>(0,“赵六”,“op”,now(),900.00),<br>(0,“前七”,“sale”,now(),1000.00));<br>7.修改数据</p>
 <p>update userinfo set salay = 1700 where username=‘王五’<br>8.两表连查<br>SELECT dept,count(*) as count FROM userinfo GROUP BY dept HAVING count(dept) &gt;1 ORDER BY count DESC;</p>
@@ -903,7 +903,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">59k</span>&nbsp;字
+                class="white-color">63k</span>&nbsp;字
             
             
             
